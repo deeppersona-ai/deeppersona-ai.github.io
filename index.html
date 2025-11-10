@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="DeepPersona: A Depth-First Synthetic-Persona Engine for Highly Personalized Language Models">
+  <meta name="keywords" content="DeepPersona, Synthetic Personas, LLM Personalization, Human Attribute Taxonomy, AI Personalization, Social Simulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepPersona: A Depth-First Synthetic-Persona Engine for Highly Personalized Language Models</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/tool_cards.css">
+  <link rel="stylesheet" href="./static/css/top_button.css">
+  <link rel="stylesheet" href="./static/css/navbar.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/case_visualization.css">
+  <link rel="stylesheet" href="./static/css/tool_cards_simplified.css">
+  <link rel="stylesheet" href="./static/css/formula_copy.css">
+  <link rel="stylesheet" href="./static/css/case_buttons.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+
+  <!-- Add navbar.js script -->
+  <script src="./static/js/navbar.js"></script>
+
+  <!-- Add MathJax -->
+  <script src="./static/js/mathjax.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Add title animation script -->
+  <script src="./static/js/title_animation.js"></script>
+
+  <!-- Add formula copy script -->
+  <script src="./static/js/formula_copy.js"></script>
+
+  <!-- Add case study script -->
+  <script src="./static/js/case_study.js?v=3"></script>
+  
+  <!-- Add profile loader script -->
+  <script src="./static/js/profile_loader.js?v=14"></script>
+
+</head>
+
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Burger Menu for Table of Contents -->
+  <button class="toc-burger" id="toc-burger" aria-label="Toggle table of contents">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="toc-wrapper" id="toc-wrapper">
+    <div class="toc-header">
+      <h4>Table of Contents</h4>
+      <button class="toc-close" id="toc-close" aria-label="Close table of contents">×</button>
+    </div>
+    <ul class="toc-list">
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#framework">Framework</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#BibTeX">BibTeX</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-overlay" id="toc-overlay"></div>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title is-bold">
+              <span style="vertical-align: middle; position: relative; display: inline-block;">
+                <span id="agent-text" class="clickable-title"
+                      style="color: #000; position: relative; cursor: pointer;">Deep</span><span id="flow-text"
+                      class="clickable-title" style="color: #000; cursor: pointer;">Persona</span></span>
+            </h1>
+            <h2 class="subtitle is-3 publication-subtitle">
+              A Depth-First Synthetic-Persona Engine for Highly Personalized Language Models
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://zhenwang9102.github.io/" target="_blank">Zhen Wang</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                <a href="https://thzva.github.io/homapage/" target="_blank">Yufan Zhou</a><sup>*2</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Zhongyan Luo</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://lyumanshanye.github.io/homepage/">Lyumanshan Ye</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Adam Wood</a><sup>4</sup>,</span>
+              <span class="author-block">
+                <a href="https://denison.edu/people/man-manda-yao">Man Yao</a><sup>5</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/panluoshang/">Luoshang Pan</a><sup>†6</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
+              <span class="author-block"><sup>1</sup>University of California San Diego, </span>
+              <span class="author-block"><sup>2</sup>KU Leuven, </span>
+              <span class="author-block"><sup>3</sup>Shanghai Jiao Tong University, </span><br>
+              <span class="author-block"><sup>4</sup>University of Michigan, </span>
+              <span class="author-block"><sup>5</sup>Denison University, </span>
+              <span class="author-block"><sup>6</sup>Meta</span>
+            </div>
+            
+            <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+              <span class="paper-block" style="margin-right: 20px;"><b>* Equal Contribution</b></span>
+              <span class="paper-block"><b>† Corresponding Author</b></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper Link with PDF icon -->
+                <span class="link-block">
+                  <a href="./NIPS_LAW.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- arXiv link -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/thzva/Deeppersona"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/THzva/deeppersona_dataset"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+                <!-- Demo Link with Gradio icon -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/THzva/deeppersona-experience"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <img src="assets/logos/gradio.svg" width="18" height="18" style="vertical-align: middle;" alt="Gradio">
+                    </span>
+                    <span>Demo</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser Section -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="columns" style="margin-bottom: 2rem; column-gap: 0;">
+        <div class="column is-6" style="padding: 0;">
+          <img src="static/images/domain_distribution.png" width="90%" class="hover-float" alt="Domain Distribution" style="display: block;">
+        </div>
+        <div class="column is-6" style="padding: 0;">
+          <div style="text-align: left;">
+            <h3 class="title is-4" style="text-align: center; margin-bottom: 1.5rem; margin-top: 0; font-size: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              <img src="static/images/tool.png" style="width: 2rem; height: 2rem; vertical-align: middle;" alt="Tool Icon">
+              A Toolkit, Not Just a Dataset
+            </h3>
+            <p style="font-size: 1.4rem; line-height: 1.5; margin-bottom: 2rem; text-align: justify;">
+              <b>DeepPersona</b> is a generative engine powered by the largest and continuously extensible human attribute taxonomy to date. Researchers can:
+            </p>
+            <ul style="font-size: 1.2rem; line-height: 1.7; list-style: none; padding-left: 0; margin-top: 0;">
+              <li style="margin-bottom: 0.4rem; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #3273dc; font-weight: bold;">✓</span>
+                <b>Control anchor traits</b> to synthesize targeted cohorts
+              </li>
+              <li style="margin-bottom: 0.4rem; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #3273dc; font-weight: bold;">✓</span>
+                <b>Bias depth</b> toward specific subtrees
+              </li>
+              <li style="margin-bottom: 0.4rem; padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #3273dc; font-weight: bold;">✓</span>
+                <b>Enhance existing shallow personas</b> with rich details
+              </li>
+              <li style="padding-left: 1.5rem; position: relative;">
+                <span style="position: absolute; left: 0; color: #3273dc; font-weight: bold;">✓</span>
+                <b>Scale to billions</b> of richly detailed profiles
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section" id="introduction" style="padding-top: 0.5rem; padding-bottom: 3rem;">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <img src="static/images/book.png" style="width: 2.5rem; height: 2.5rem;" alt="Book Icon">
+            Brief Introduction
+          </h2>
+          <div class="content has-text-justified">
+            <p style="font-size: 1.15rem; line-height: 1.6;">
+              Simulating human profiles by instilling personas into large language models (LLMs) is rapidly transforming research in personalization, social simulation, and human-AI alignment. However, most existing synthetic personas remain shallow and simplistic, capturing minimal attributes and failing to reflect the rich complexity and diversity of real human identities.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.6;">
+              We introduce <b>DeepPersona</b>, a scalable generative engine for synthesizing narrative-complete synthetic personas through a two-stage, taxonomy-guided method. First, we algorithmically construct the largest-ever human-attribute taxonomy, comprising over <b>hundreds of hierarchically-organized attributes</b>, by systematically mining thousands of real user-ChatGPT conversations. Second, we progressively sample attributes from this taxonomy, conditionally generating coherent and realistic personas, averaging <b>hundreds of structured attributes</b> and roughly <b>1 MB of narrative text</b>, <b>two orders of magnitude deeper than prior works</b>.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.6;">
+              Intrinsic evaluations confirm significant improvements in attribute diversity (<b>32% higher coverage</b>) and profile uniqueness (<b>44% greater</b>) compared to state-of-the-art baselines. Extrinsically, our personas enhance GPT-4.1-mini's personalized Q&A accuracy by <b>11.6%</b> average on ten metrics, and substantially narrow (by <b>32%</b>) the gap between simulated LLM "citizens" and authentic human responses in social surveys.
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.6;">
+              DeepPersona thus provides a rigorous, scalable, and privacy-free platform for high-fidelity human simulation and personalized AI research.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Introduction -->
+
+  <!-- Framework Section -->
+  <section class="section" id="framework" style="padding-top: 0.5rem;">
+    <div class="container" style="margin-bottom: 2vh;">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"><b>DeepPersona</b> Framework</h2>
+
+          <!-- Framework Figure -->
+          <div class="content has-text-centered" style="margin-bottom: 2rem;">
+            <img src="static/images/fig2_framework.png" width="100%" class="hover-float">
+            <p style="text-align: left;">
+              <b>DeepPersona Framework.</b> Our two-stage approach: (1) constructing a comprehensive human-attribute taxonomy from real conversations, and (2) progressively sampling attributes to generate deep, coherent personas.
+            </p>
+          </div>
+          
+          <div class="content has-text-justified" style="margin-top: 1.5rem;">
+            <p style="font-size: 1.15rem; line-height: 1.6;">
+              <b>Stage 1: Human-Attribute Taxonomy Construction.</b> We systematically mine 3,000 real-world user-ChatGPT dialogues from the Puffin dataset, identifying 1,224 high-quality personalized Q-A pairs. Using GPT-4o, we extract and hierarchically organize fine-grained attributes (e.g., <i>Lifestyle → Food Preference → Vegan</i>), then merge semantically similar branches. The resulting taxonomy contains <b>4,676 unique nodes</b> organized under 12 broad categories (Demographics, Health, Core Values, etc.).
+            </p>
+            <p style="font-size: 1.15rem; line-height: 1.6;">
+              <b>Stage 2: Progressive Attribute Sampling.</b> With the comprehensive taxonomy \(T\) in place, persona generation reduces to iteratively sampling from the structured distribution \(\mathbb{P}_{\theta,T}(P \mid S,k) = \prod_{i=1}^{k} \Pr(a_i \mid S, P_{\lt i}, T)\, \Pr_{\theta}(v_i \mid a_i, S, P_{\lt i}, T)\), where \(P = \{(a_i, v_i)\}_{i=1}^{k}\) and \(P_{\lt i} = \{(a_j, v_j)\}_{j \lt i}\). The attribute selector chooses the next node \(a_i\) from \(T\) and the LLM \(\theta\) generates its value \(v_i\). To achieve realistic depth and diversity, we first anchor a stable core of non-negotiable attributes (age, location, career, personal values, life attitude, hobbies), then use bias-free value assignment from predefined tables for demographics to avoid majority-culture defaults. The selector performs stochastic breadth-first traversal of \(T\), biasing toward long-tail branches to maximize diversity, while the LLM progressively fills each selected attribute conditioned on the evolving profile \(P_{\lt i}\) to ensure global coherence. A narrative summary \(\operatorname{Narr}(P)\) is produced as a byproduct of this sampling process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Try DeepPersona Section -->
+  <section class="section" id="try-deeppersona" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 0;">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-fifths">
+          <h2 class="title is-2" style="color: white; margin-bottom: 1.5rem; font-weight: 700;">Try DeepPersona</h2>
+          <p style="color: rgba(255,255,255,0.95); font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
+            Experience DeepPersona firsthand! Generate personalized profiles and explore diverse personas through our interactive demo.
+          </p>
+          <a href="https://huggingface.co/spaces/THzva/deeppersona-experience" target="_blank" class="button is-large is-white" style="border-radius: 12px; font-weight: 600; padding: 1.5rem 3rem; font-size: 1.2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: all 0.3s;">
+            🚀 Launch Interactive Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Examples Section -->
+  <section class="section" id="methodology" style="padding-top: 1.5rem; padding-bottom: 5rem; background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- Section Title -->
+          <h2 class="title is-3" style="color: #2c3e50; margin-bottom: 1.2rem; font-weight: 700;">Profile Examples</h2>
+          <p class="subtitle is-5" style="color: #7f8c8d; margin-bottom: 3rem; white-space: nowrap;">
+            Explore diverse persona profiles generated across different countries and demographics
+          </p>
+
+          <!-- Selection Controls - Single Box with Two Sections -->
+          <div style="margin-bottom: 3rem; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+            <div style="display: flex; gap: 2rem;">
+              <!-- Left: Country Selection -->
+              <div style="flex: 3;">
+                <h3 class="title is-3" style="color: #2c3e50; margin-bottom: 1.5rem; font-weight: 700; text-align: center;">Select a Country</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                  <!-- First Row: 4 buttons -->
+                  <div style="display: flex; gap: 0.7rem;">
+                    <button class="button is-large case-btn is-primary" data-case="1" data-country="china" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 6px 12px rgba(74, 144, 226, 0.3); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇨🇳 China</button>
+                    <button class="button is-large case-btn" data-case="2" data-country="usa" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇺🇸 USA</button>
+                    <button class="button is-large case-btn" data-case="3" data-country="japan" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇯🇵 Japan</button>
+                    <button class="button is-large case-btn" data-case="4" data-country="germany" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇩🇪 Germany</button>
+                  </div>
+                  <!-- Second Row: 3 buttons -->
+                  <div style="display: flex; gap: 0.7rem;">
+                    <button class="button is-large case-btn" data-case="5" data-country="india" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇮🇳 India</button>
+                    <button class="button is-large case-btn" data-case="6" data-country="kenya" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇰🇪 Kenya</button>
+                    <button class="button is-large case-btn" data-case="7" data-country="argentina" style="flex: 1; border-radius: 14px; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s; padding: 1.5rem 1rem; font-size: 1.3rem;">🇦🇷 Argentina</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Profile Selection (Compact) -->
+              <div style="flex: 1.8; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.2rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);">
+                <h3 class="title is-4" style="color: white; text-align: center; margin-bottom: 1rem; font-weight: 700;">Select Profile</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                  <button class="button is-small question-case-btn active-case" data-case-num="1" style="background: rgba(255,255,255,0.95); border-radius: 10px; font-weight: 600; border: 2px solid transparent; transition: all 0.3s; color: #667eea; font-size: 1rem; padding: 0.7rem 0.4rem;">Profile 1</button>
+                  <button class="button is-small question-case-btn" data-case-num="2" style="background: rgba(255,255,255,0.95); border-radius: 10px; font-weight: 600; border: 2px solid transparent; transition: all 0.3s; color: #667eea; font-size: 1rem; padding: 0.7rem 0.4rem;">Profile 2</button>
+                  <button class="button is-small question-case-btn" data-case-num="3" style="background: rgba(255,255,255,0.95); border-radius: 10px; font-weight: 600; border: 2px solid transparent; transition: all 0.3s; color: #667eea; font-size: 1rem; padding: 0.7rem 0.4rem;">Profile 3</button>
+                  <button class="button is-small question-case-btn" data-case-num="4" style="background: rgba(255,255,255,0.95); border-radius: 10px; font-weight: 600; border: 2px solid transparent; transition: all 0.3s; color: #667eea; font-size: 1rem; padding: 0.7rem 0.4rem;">Profile 4</button>
+                  <button class="button is-small question-case-btn" data-case-num="5" style="background: rgba(255,255,255,0.95); border-radius: 10px; font-weight: 600; border: 2px solid transparent; transition: all 0.3s; color: #667eea; font-size: 1rem; padding: 0.7rem 0.4rem; grid-column: 1 / -1;">Profile 5</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Content Area (Full Width) -->
+          <div id="case-details-container" class="box" style="background: white; padding: 1rem 1.5rem 1.5rem 1.5rem; border-radius: 16px; min-height: 500px; border: 1px solid #e1e8ed; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+            <h4 class="title is-4" id="case-title" style="color: #2c3e50; text-align: center; border-bottom: 2px solid #667eea; padding-top: 0.3rem; padding-bottom: 0.5rem; margin-bottom: 0.5rem; font-size: 1.6rem; font-weight: 700;">
+              China Profile 1
+            </h4>
+            <div id="case-content" style="line-height: 1.6; color: #34495e; font-size: 1rem; text-align: justify;">
+              <p style="text-align: center; color: #7f8c8d;">Loading profile data...</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Experimental Results</h2>
+          <h3 class="title is-4">Main Results</h3>
+          <div class="content has-text-justified">
+            <p>
+              We benchmark <b>DeepPersona</b> on three complementary axes to verify that profiles are <i>deep, distinct, and useful</i>: (i) intrinsic quality, (ii) LLM personalization, and (iii) social simulation. Together, these evaluations assess whether <b>DeepPersona</b> truly advances synthetic users from verbose text to research-ready human proxies.
+            </p>
+
+            <div id="main-results-carousel" class="carousel results-carousel">
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/result1.png" width="100%">
+                  <p><b>Result Figure 1.</b> Comparison of DeepPersona with Cultural Prompting and OpenCharacter across six countries.Lower values on four statistical metrics (KS, Wasserstein, JS Divergence, Mean Diff.) indicate closer alignment with real human survey responses.DeepPersona consistently achieves the lowest distances (highlighted in green), showing superior realism and cultural fidelity.</p>
+                </div>
+              </div>
+
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/result2.png" width="100%">
+                  <p><b>Result Figure 2.</b> Comparison across countries shows that DeepPersona consistently attains the lowest KS, Wasserstein, JS Divergence, and Mean Difference values, indicating superior alignment with real human personality distributions and enhanced psychological fidelity.</p>
+                </div>
+              </div>
+
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/result3.png" width="100%">
+                  <p><b>Result Figure 3.</b>  Intrinsic comparisons show that DeepPersona substantially outperforms prior baselines (PersonaHub and OpenCharacter) across all metrics. It achieves the highest mean number of attributes (50.92), indicating far greater persona depth, along with markedly higher uniqueness (4.12) and actionability potential (5.00), reflecting richer diversity and stronger utility for downstream personalization tasks.</p>
+                </div>
+              </div>
+
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/result4.png" width="100%">
+                  <p><b>Result Figure 4.</b>  Comparison of persona modeling methods on World Values Survey responses from Germany. Lower scores across KS, Wasserstein, JS Divergence, and Mean Difference indicate better alignment with real human distributions. DeepPersona consistently achieves the lowest values across all backbone models (DeepSeek-v3, GPT-4o-mini, GPT-4.1, Gemini-2.5-Flash), confirming its robustness, generalizability, and superior fidelity in simulating authentic social behaviors.</p>
+                </div>
+              </div>
+
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="static/images/result5.png" width="100%">
+                  <p><b>Result Figure 5.</b>Radar plots compare DeepPersona with PersonaHub and OpenCharacter across ten personalization metrics, including Personalization Fit, Attribute Coverage, Depth, Justification, and Engagement. Evaluations were conducted under multiple responder–evaluator settings (GPT-4.1-mini, GPT-4.1, GPT-4o, and Gemini-2.5-Flash). DeepPersona consistently achieves the highest overall scores, demonstrating stronger personalization fit, richer contextual grounding, and higher response diversity and actionability across all model configurations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact" style="padding-bottom: 1rem;">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2">Contact</h2>
+          <div class="content has-text-justified">
+            <p style="font-size: 1.1rem;">
+              If you have any questions regarding DeepPersona, feel free to reach out to us via email at <a href="mailto:zhouyufan365@gmail.com">zhouyufan365@gmail.com</a> or directly submit a <a href="https://github.com/thzva/Deeppersona/issues">GitHub issue</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX" style="padding-top: 1rem;">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-2 has-text-centered">BibTeX</h2>
+      <pre><code>@article{wang2024deeppersona,
+    title={DeepPersona: A Depth-First Synthetic-Persona Engine for Highly Personalized Language Models},
+    author={Wang, Zhen and Zhou, Yufan and Luo, Zhongyan and Yao, Adam Wood Man and Pan, Liushang},
+    journal={arXiv preprint},
+    year={2024}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          This website is adapted from <a href="https://agentflow.stanford.edu/" target="_blank">AgentFlow</a>, licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize main results carousel
+    bulmaCarousel.attach('#main-results-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true,
+      autoplay: false,
+      navigation: true,
+      navigationKeys: true,
+      pagination: true
+    });
+  </script>
+
+</body>
+</html>
